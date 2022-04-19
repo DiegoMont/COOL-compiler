@@ -232,3 +232,16 @@ javac-services.0.log.lck
 !runtime/Python3/test/
 Antlr4.sln
 runtime/PHP
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
