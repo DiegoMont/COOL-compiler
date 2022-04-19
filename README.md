@@ -29,5 +29,5 @@ Instructions to create
 5. Go to the directory where the grammar file is stored and compile it
    ```sh
    cd src\antlr
-   java -jar %ANTLRPATH% cool.g4
+   java -jar %ANTLRPATH% -Dlanguage=Python3 cool.g4
    ```
