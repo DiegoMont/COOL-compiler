@@ -5,18 +5,18 @@ from antlr.coolParser import coolParser
 class dummyListener(coolListener):
 
     def __init__(self):
-        self.main = False
-        self.klassInt = False
-        self.hasNamedSelf = False
+        self.selfTypeInformalParameter = False
+        self.selfInformalParameter = False
+        self.klassInheritsString = False
         self.klassInheritsBool = False
         self.klassInheritsSelf = False
-        self.klassInheritsString = False
         self.letHasNamedSelf = False
-        self.klassObject = False
         self.selfAssignment = False
         self.klassSelfType = False
-        self.selfInformalParameter = False
-        self.selfTypeInformalParameter = False
+        self.hasNamedSelf = False
+        self.klassObject = False
+        self.klassInt = False
+        self.main = False
 
     def enterKlass(self, ctx:coolParser.KlassContext):
         ctx_type = ctx.TYPE(0).getText()
