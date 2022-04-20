@@ -6,13 +6,57 @@ class dummyListener(coolListener):
 
     def __init__(self):
         self.main = False
+        self.klassInt = False
+        self.hasNamedSelf = False
+        self.klassInheritsBool = False
+        self.klassInheritsSelf = False
+        self.klassInheritsString = False
+        self.letHasNamedSelf = False
+        self.klassObject = False
+        self.selfAssignment = False
 
     def enterKlass(self, ctx:coolParser.KlassContext):
-        if ctx.TYPE(0).getText() == 'Main':
-            self.main = True
+        ctx_type = ctx.TYPE(0).getText()
+        self.main = ctx_type == 'Main'
+        self.klassInt = ctx_type == 'Int'
+        self.klassObject = ctx_type == 'Object'
+        if ctx.TYPE(1):
+            ctx_type = ctx.TYPE(1).getText()
+            self.klassInheritsBool = ctx_type == 'Bool'
+            self.klassInheritsSelf = ctx_type == 'SELF_TYPE'
+            self.klassInheritsString = ctx_type == 'String'
+            
 
     def exitKlass(self, ctx:coolParser.KlassContext):
         if (not self.main):
             raise nomain()
+        if self.klassInt:
+            raise badredefineint()
+        if self.klassObject:
+            raise redefinedobject()
+        if self.klassInheritsBool:
+            raise inheritsbool()
+        if self.klassInheritsSelf:
+            raise inheritsselftype()
+        if self.klassInheritsString:
+            raise inheritsstring
 
+    def enterFeature(self, ctx: coolParser.FeatureContext):
+        if ctx.ID().getText() == 'self':
+            self.hasNamedSelf = True
+        if ctx.expr() and ctx.expr().getText() == 'self':
+            self.selfAssignment = True
+            
 
+    def exitFeature(self, ctx: coolParser.FeatureContext):
+        if self.hasNamedSelf:
+            raise anattributenamedself()
+        if self.selfassignment:
+            raise selfassignment()
+
+    def enterLet_decl(self, ctx: coolParser.Let_declContext):
+        self.letHasNamedSelf = ctx.ID().getText() == 'self'
+
+    def exitLet_decl(self, ctx: coolParser.Let_declContext):
+        if self.letHasNamedSelf:
+            raise letself()
