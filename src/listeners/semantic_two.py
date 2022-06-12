@@ -29,7 +29,7 @@ class semanticTwoListener(coolListener):
         attr_type = ctx.TYPE().getText()
 
         if ctx.expr():
-            expr = ctx.expre()
+            expr = ctx.expr()
             try:
                 if expr.getChild(0).ID():
                     ctx.current_klass.lookupAttribute(expr.getText())
@@ -76,7 +76,7 @@ class semanticTwoListener(coolListener):
         child_count = ctx.expr().getChildCount()
         if child_count == 1:
             massive = ctx.expr().getChild(0).getText()
-            if 'self' in massive or 'new SELF_TYPE' in massive:
+            if 'self' in massive or 'newSELF_TYPE' in massive:
                 raise selftypebadreturn()
         else:
             for i in range(child_count-1, -1, -1):

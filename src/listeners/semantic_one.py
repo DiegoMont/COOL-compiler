@@ -1,5 +1,5 @@
 from antlr.coolParser import coolParser
-from antlr.coolParser import coolListener
+from antlr.coolListener import coolListener
 from util.exceptions import *
 from util.utils import *
 from util.structure import *
@@ -14,7 +14,7 @@ class semanticOneListener(coolListener):
         self.add_basic_classes_to_symbol_table(ctx)
 
     def exitProgram(self, ctx: coolParser.ProgramContext):
-        if 'Main' not in ctx.classes_dict:
+        if 'Main' not in ctx.klasses_dict:
             raise nomain()
         for klass in ctx.klasses_dict:
             inherits = ctx.klasses_dict[klass]

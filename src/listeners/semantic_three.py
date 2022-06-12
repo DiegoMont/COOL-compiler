@@ -1,5 +1,5 @@
 from antlr.coolParser import coolParser
-from antlr.coolParser import coolListener
+from antlr.coolListener import coolListener
 from util.exceptions import assignnoconform, badargs1, badarith, baddispatch, badequalitytest, badequalitytest2, badmethodcallsitself, badstaticdispatch, badwhilecond, letbadinit, outofscope
 from util.structure import _allClasses
 from util.utils import *
@@ -26,7 +26,7 @@ class semanticThreeListener(coolListener):
 
     def exitPrimary(self, ctx: coolParser.PrimaryContext):
         if ctx.expr():
-            ctx.type = ctx.expre().type
+            ctx.type = ctx.expr().type
 
     def exitExpr_primary(self, ctx: coolParser.Expr_primaryContext):
         ctx.type = ctx.getChild(0).type
@@ -139,7 +139,7 @@ class semanticThreeListener(coolListener):
         param_idx = 0
         for name in method_lookup.params:
             signature_klass = _allClasses[method_lookup.params[name]]
-            input_klass = _allClasses[cx.params[param_idx].type]
+            input_klass = _allClasses[ctx.params[param_idx].type]
             if not signature_klass.conforms(input_klass):
                 raise badargs1()
             param_idx += 1
