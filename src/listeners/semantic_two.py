@@ -43,7 +43,7 @@ class semanticTwoListener(coolListener):
             if attr_type != type_lookup:
                 raise attroverride()
         except KeyError:
-            pass
+            ctx.current_klass.addAttribute(attr_name, attr_type)
 
     def enterMethod(self, ctx: coolParser.MethodContext):
         method_type = ctx.TYPE().getText()
@@ -71,6 +71,7 @@ class semanticTwoListener(coolListener):
                 raise overridingmethod4()
         except KeyError:
             ctx.current_klass.addMethod(name, method)
+        ctx.method = method
 
     def check_self_type_usage(self, ctx: coolParser.MethodContext):
         child_count = ctx.expr().getChildCount()

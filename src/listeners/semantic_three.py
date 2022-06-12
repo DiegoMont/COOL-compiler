@@ -85,7 +85,7 @@ class semanticThreeListener(coolListener):
     def exitLet_decl(self, ctx: coolParser.Let_declContext):
         let_type = ctx.TYPE().getText()
         if ctx.expr():
-            expr_type = ctx.expre().type
+            expr_type = ctx.expr().type
             if let_type != expr_type:
                 raise letbadinit()
 
