@@ -31,12 +31,12 @@ expr
     | expr ( '@' TYPE )? '.' ID '(' ( params+=expr  ( ',' params+=expr)* )? ')'     #dispatch
     | '˜' expr                                                                      #w
     | ISVOID expr                                                                   #is_void
-    | expr '*' expr                                                                 #arith
-    | expr '/' expr                                                                 #arith
-    | expr '+' expr                                                                 #arith
-    | expr '-' expr                                                                 #arith
-    | expr '<' expr                                                                 #arith
-    | expr '<=' expr                                                                #arith
+    | expr '*' expr                                                                 #multiplication
+    | expr '/' expr                                                                 #division
+    | expr '+' expr                                                                 #addition
+    | expr '-' expr                                                                 #substraction
+    | expr '<' expr                                                                 #compare
+    | expr '<=' expr                                                                #compare
     | expr '=' expr                                                                 #equals
     | 'not' expr                                                                    #not
     | <assoc=right> ID '<-' expr                                                    #assignment

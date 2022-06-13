@@ -53,21 +53,21 @@ class coolListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by coolParser#arith.
-    def enterArith(self, ctx:coolParser.ArithContext):
-        pass
-
-    # Exit a parse tree produced by coolParser#arith.
-    def exitArith(self, ctx:coolParser.ArithContext):
-        pass
-
-
     # Enter a parse tree produced by coolParser#new_type.
     def enterNew_type(self, ctx:coolParser.New_typeContext):
         pass
 
     # Exit a parse tree produced by coolParser#new_type.
     def exitNew_type(self, ctx:coolParser.New_typeContext):
+        pass
+
+
+    # Enter a parse tree produced by coolParser#compare.
+    def enterCompare(self, ctx:coolParser.CompareContext):
+        pass
+
+    # Exit a parse tree produced by coolParser#compare.
+    def exitCompare(self, ctx:coolParser.CompareContext):
         pass
 
 
@@ -107,6 +107,15 @@ class coolListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by coolParser#substraction.
+    def enterSubstraction(self, ctx:coolParser.SubstractionContext):
+        pass
+
+    # Exit a parse tree produced by coolParser#substraction.
+    def exitSubstraction(self, ctx:coolParser.SubstractionContext):
+        pass
+
+
     # Enter a parse tree produced by coolParser#while.
     def enterWhile(self, ctx:coolParser.WhileContext):
         pass
@@ -122,6 +131,15 @@ class coolListener(ParseTreeListener):
 
     # Exit a parse tree produced by coolParser#content.
     def exitContent(self, ctx:coolParser.ContentContext):
+        pass
+
+
+    # Enter a parse tree produced by coolParser#division.
+    def enterDivision(self, ctx:coolParser.DivisionContext):
+        pass
+
+    # Exit a parse tree produced by coolParser#division.
+    def exitDivision(self, ctx:coolParser.DivisionContext):
         pass
 
 
@@ -179,12 +197,30 @@ class coolListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by coolParser#multiplication.
+    def enterMultiplication(self, ctx:coolParser.MultiplicationContext):
+        pass
+
+    # Exit a parse tree produced by coolParser#multiplication.
+    def exitMultiplication(self, ctx:coolParser.MultiplicationContext):
+        pass
+
+
     # Enter a parse tree produced by coolParser#if_else.
     def enterIf_else(self, ctx:coolParser.If_elseContext):
         pass
 
     # Exit a parse tree produced by coolParser#if_else.
     def exitIf_else(self, ctx:coolParser.If_elseContext):
+        pass
+
+
+    # Enter a parse tree produced by coolParser#addition.
+    def enterAddition(self, ctx:coolParser.AdditionContext):
+        pass
+
+    # Exit a parse tree produced by coolParser#addition.
+    def exitAddition(self, ctx:coolParser.AdditionContext):
         pass
 
 

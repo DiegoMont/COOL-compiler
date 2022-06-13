@@ -569,28 +569,6 @@ class coolParser ( Parser ):
             super().copyFrom(ctx)
 
 
-    class ArithContext(ExprContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a coolParser.ExprContext
-            super().__init__(parser)
-            self.copyFrom(ctx)
-
-        def expr(self, i:int=None):
-            if i is None:
-                return self.getTypedRuleContexts(coolParser.ExprContext)
-            else:
-                return self.getTypedRuleContext(coolParser.ExprContext,i)
-
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterArith" ):
-                listener.enterArith(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitArith" ):
-                listener.exitArith(self)
-
-
     class New_typeContext(ExprContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a coolParser.ExprContext
@@ -609,6 +587,28 @@ class coolParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitNew_type" ):
                 listener.exitNew_type(self)
+
+
+    class CompareContext(ExprContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a coolParser.ExprContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def expr(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(coolParser.ExprContext)
+            else:
+                return self.getTypedRuleContext(coolParser.ExprContext,i)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterCompare" ):
+                listener.enterCompare(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitCompare" ):
+                listener.exitCompare(self)
 
 
     class DispatchContext(ExprContext):
@@ -705,6 +705,28 @@ class coolParser ( Parser ):
                 listener.exitMethod_call(self)
 
 
+    class SubstractionContext(ExprContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a coolParser.ExprContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def expr(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(coolParser.ExprContext)
+            else:
+                return self.getTypedRuleContext(coolParser.ExprContext,i)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterSubstraction" ):
+                listener.enterSubstraction(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitSubstraction" ):
+                listener.exitSubstraction(self)
+
+
     class WhileContext(ExprContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a coolParser.ExprContext
@@ -753,6 +775,28 @@ class coolParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitContent" ):
                 listener.exitContent(self)
+
+
+    class DivisionContext(ExprContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a coolParser.ExprContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def expr(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(coolParser.ExprContext)
+            else:
+                return self.getTypedRuleContext(coolParser.ExprContext,i)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterDivision" ):
+                listener.enterDivision(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitDivision" ):
+                listener.exitDivision(self)
 
 
     class NotContext(ExprContext):
@@ -896,6 +940,28 @@ class coolParser ( Parser ):
                 listener.exitLet_in(self)
 
 
+    class MultiplicationContext(ExprContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a coolParser.ExprContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def expr(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(coolParser.ExprContext)
+            else:
+                return self.getTypedRuleContext(coolParser.ExprContext,i)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterMultiplication" ):
+                listener.enterMultiplication(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitMultiplication" ):
+                listener.exitMultiplication(self)
+
+
     class If_elseContext(ExprContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a coolParser.ExprContext
@@ -924,6 +990,28 @@ class coolParser ( Parser ):
         def exitRule(self, listener:ParseTreeListener):
             if hasattr( listener, "exitIf_else" ):
                 listener.exitIf_else(self)
+
+
+    class AdditionContext(ExprContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a coolParser.ExprContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def expr(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(coolParser.ExprContext)
+            else:
+                return self.getTypedRuleContext(coolParser.ExprContext,i)
+
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterAddition" ):
+                listener.enterAddition(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitAddition" ):
+                listener.exitAddition(self)
 
 
 
@@ -1161,7 +1249,7 @@ class coolParser ( Parser ):
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,18,self._ctx)
                     if la_ == 1:
-                        localctx = coolParser.ArithContext(self, coolParser.ExprContext(self, _parentctx, _parentState))
+                        localctx = coolParser.MultiplicationContext(self, coolParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 147
                         if not self.precpred(self._ctx, 9):
@@ -1174,7 +1262,7 @@ class coolParser ( Parser ):
                         pass
 
                     elif la_ == 2:
-                        localctx = coolParser.ArithContext(self, coolParser.ExprContext(self, _parentctx, _parentState))
+                        localctx = coolParser.DivisionContext(self, coolParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 150
                         if not self.precpred(self._ctx, 8):
@@ -1187,7 +1275,7 @@ class coolParser ( Parser ):
                         pass
 
                     elif la_ == 3:
-                        localctx = coolParser.ArithContext(self, coolParser.ExprContext(self, _parentctx, _parentState))
+                        localctx = coolParser.AdditionContext(self, coolParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 153
                         if not self.precpred(self._ctx, 7):
@@ -1200,7 +1288,7 @@ class coolParser ( Parser ):
                         pass
 
                     elif la_ == 4:
-                        localctx = coolParser.ArithContext(self, coolParser.ExprContext(self, _parentctx, _parentState))
+                        localctx = coolParser.SubstractionContext(self, coolParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 156
                         if not self.precpred(self._ctx, 6):
@@ -1213,7 +1301,7 @@ class coolParser ( Parser ):
                         pass
 
                     elif la_ == 5:
-                        localctx = coolParser.ArithContext(self, coolParser.ExprContext(self, _parentctx, _parentState))
+                        localctx = coolParser.CompareContext(self, coolParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 159
                         if not self.precpred(self._ctx, 5):
@@ -1226,7 +1314,7 @@ class coolParser ( Parser ):
                         pass
 
                     elif la_ == 6:
-                        localctx = coolParser.ArithContext(self, coolParser.ExprContext(self, _parentctx, _parentState))
+                        localctx = coolParser.CompareContext(self, coolParser.ExprContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
                         self.state = 162
                         if not self.precpred(self._ctx, 4):
