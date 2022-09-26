@@ -18,7 +18,9 @@ Instructions to create
    pip install antlr4-python3-runtime
    ```
 
-3. Download ANTLR4 from https://www.antlr.org/download/antlr-4.10.1-complete.jar
+3. Download ANTLR4 from https://www.antlr.org/download/antlr-4.11.1-complete.jar
+
+3. Rename the jar file to *antlr4.jar*
 
 4. Create path variable
    *Windows*
